@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automação N8N — Integrações & Workflows | Hermes Lab</title>
+  <meta name="description" content="Setup completo N8N, automação de processos, integrações APIs. Reduza custos operacionais e automatize seu negócio.">
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../home/index.html">⚡ Hermes Lab</a>
+  <div class="nav-links">
+    <a href="../home/index.html">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#casos">Casos de Uso</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<section class="hero" style="background:linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #065f46 100%);">
+  <div>
+    <span class="badge">🤖 Automação Inteligente</span>
+    <h1>Automatize processos.<br>Economize tempo e dinheiro.</h1>
+    <p>Setup N8N completo, integrações entre sistemas, workflows personalizados. Reduza tarefas manuais em até 80%.</p>
+    <a href="#contato" class="btn btn-primary" style="margin-right:1rem;">Solicitar Orçamento</a>
+    <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+  </div>
+</section>
+
+<section class="section section-light" id="servicos">
+  <div class="container">
+    <h2 class="section-title">Serviços de Automação</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Setup N8N Completo</h3>
+        <p>Instalação, configuração e otimização do N8N no seu servidor. Docker, SSL, monitoramento.</p>
+        <div class="card-price">R$2.500</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <h3>Integração de Sistemas</h3>
+        <p>Conecte CRM, ERP, e-mail, WhatsApp, planilhas. Qualquer sistema com API.</p>
+        <div class="card-price">R$1.500-3.000</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Workflows Personalizados</h3>
+        <p>Automação sob medida para seu processo específico. Captura de leads, nurture, relatórios.</p>
+        <div class="card-price">R$1.500-5.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="casos">
+  <div class="container">
+    <h2 class="section-title">Casos de Uso</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📧</div>
+        <h3>Captação de Leads</h3>
+        <p>Formulário → Google Sheets → WhatsApp automático → Follow-up em 48h.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>WhatsApp Business</h3>
+        <p>Mensagens automáticas, catálogo, pedidos, suporte ao cliente.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Relatórios Automáticos</h3>
+        <p>Dados de múltiplas fontes → Dashboard → Envio por e-mail semanal.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>E-commerce</h3>
+        <p>Pedido → Faturamento → Expedição → Notificação ao cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="contato">
+  <div class="container" style="max-width:600px;">
+    <h2 class="section-title">Solicitar Automação</h2>
+    <form id="auto-form">
+      <div class="form-group"><label>Nome</label><input type="text" name="nome" required></div>
+      <div class="form-group"><label>E-mail</label><input type="email" name="email" required></div>
+      <div class="form-group"><label>Empresa</label><input type="text" name="empresa"></div>
+      <div class="form-group"><label>Processo a Automatizar</label><textarea name="mensagem" rows="4" placeholder="Descreva o processo que quer automatizar..."></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">🤖 Solicitar Automação</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer"><p>© 2026 Hermes Lab — Automação N8N</p></footer>
+<script src="../shared/script.js"></script>
+<script>handleSubmit('auto-form', 'http://localhost:5678/webhook/automacao');</script>
+</body>
+</html>

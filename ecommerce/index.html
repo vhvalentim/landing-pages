@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce & Marketing Digital — TikTok Shop, Shopee | Hermes Lab</title>
+  <meta name="description" content="Gestão completa de e-commerce: TikTok Shop, Shopee, Mercado Livre. Tráfego pago, analytics, conversão. Resultados comprovados.">
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../home/index.html">⚡ Hermes Lab</a>
+  <div class="nav-links">
+    <a href="../home/index.html">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#plataformas">Plataformas</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<section class="hero" style="background:linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #7c2d12 100%);">
+  <div>
+    <span class="badge">📈 E-commerce & Performance</span>
+    <h1>Venda mais.<br>Gaste menos.</h1>
+    <p>Gestão profissional de e-commerce e marketing digital. TikTok Shop, Shopee, Mercado Livre, Instagram. Tráfego pago otimizado.</p>
+    <a href="#contato" class="btn btn-primary" style="margin-right:1rem;">Aumentar Vendas</a>
+    <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+  </div>
+</section>
+
+<section class="section section-light" id="servicos">
+  <div class="container">
+    <h2 class="section-title">Serviços de E-commerce</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Gestão de Plataformas</h3>
+        <p>Operação completa: anúncios, pedidos, atendimento, métricas. TikTok Shop, Shopee, ML.</p>
+        <div class="card-price">R$2.000-5.000/mês</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Tráfego Pago</h3>
+        <p>Google Ads, Meta Ads, TikTok Ads. Segmentação, criativos, otimização de lances.</p>
+        <div class="card-price">R$1.500-3.000/mês</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Analytics & Métricas</h3>
+        <p>Dashboard personalizado: GMV, ROAS, CAC, LTV, conversão. Relatórios semanais.</p>
+        <div class="card-price">R$1.000-2.000</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Criativos & Conteúdo</h3>
+        <p>Imagens, vídeos, copy para anúncios. Testes A/B contínuos.</p>
+        <div class="card-price">R$1.000-2.000/mês</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="plataformas">
+  <div class="container">
+    <h2 class="section-title">Plataformas que Dominamos</h2>
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+      <div class="card" style="text-align:center;"><div class="card-icon">🎵</div><h3>TikTok Shop</h3></div>
+      <div class="card" style="text-align:center;"><div class="card-icon">🛒</div><h3>Shopee</h3></div>
+      <div class="card" style="text-align:center;"><div class="card-icon">📦</div><h3>Mercado Livre</h3></div>
+      <div class="card" style="text-align:center;"><div class="card-icon">📸</div><h3>Instagram</h3></div>
+      <div class="card" style="text-align:center;"><div class="card-icon">🔍</div><h3>Google Ads</h3></div>
+      <div class="card" style="text-align:center;"><div class="card-icon">📘</div><h3>Meta Ads</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="contato">
+  <div class="container" style="max-width:600px;">
+    <h2 class="section-title">Aumentar Minhas Vendas</h2>
+    <form id="ecomm-form">
+      <div class="form-group"><label>Nome</label><input type="text" name="nome" required></div>
+      <div class="form-group"><label>E-mail</label><input type="email" name="email" required></div>
+      <div class="form-group"><label>Loja / Link</label><input type="url" name="loja" placeholder="https://..."></div>
+      <div class="form-group"><label>Plataforma</label>
+        <select name="plataforma">
+          <option value="tiktok">TikTok Shop</option>
+          <option value="shopee">Shopee</option>
+          <option value="mercadolivre">Mercado Livre</option>
+          <option value="instagram">Instagram</option>
+          <option value="multi">Multi-plataforma</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Faturamento Atual (mensal)</label>
+        <select name="faturamento">
+          <option value="0-5k">Até R$5.000</option>
+          <option value="5k-20k">R$5.000 - R$20.000</option>
+          <option value="20k-50k">R$20.000 - R$50.000</option>
+          <option value="50k+">R$50.000+</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">📈 Quero Vender Mais</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer"><p>© 2026 Hermes Lab — E-commerce & Marketing</p></footer>
+<script src="../shared/script.js"></script>
+<script>handleSubmit('ecomm-form', 'http://localhost:5678/webhook/ecommerce');</script>
+</body>
+</html>
