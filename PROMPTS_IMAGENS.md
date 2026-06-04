@@ -1,124 +1,232 @@
-# 🎨 PROMPTS PARA IMAGENS — NORDY (SDXL Básico)
+# 🎨 GUIA DE IMAGENS PARA LANDING PAGES
 
-**Restrições do Nordy:** Sem LoRAs, sem checkpoints pesados. Apenas prompts simples SDXL/SD1.5.
-**Resolução recomendada:** 1920x1080 (hero) ou 1200x630 (social)
+**Os checkpoints e LoRAs que existem de verdade no Nordy.**
 
----
 
-## 1. HOMEPAGE — Hero
+## OS 3 CHECKPOINTS QUE EXISTEM NO NORDY
 
-```
-Professional dark blue technology background with abstract digital network nodes and glowing blue connections, cybersecurity shield icon in center, modern corporate style, clean minimalist design, cinematic lighting, 4k, no text
-```
+Estes são os arquivos `.safetensors` que o Nordy carrega. NÃO existe "SDXL 1.0 genérico".
 
-**Variação 2:**
-```
-Futuristic digital investigation workspace with multiple holographic screens showing data analysis, dark room with blue accent lighting, cyber security concept, photorealistic, no text
-```
+| \# | Checkpoint (nome real) | Tipo | Estilo | Melhor para |
+| - | - | - | - | - |
+| 1 | **juggernautXL\_v9Rdphoto2Lightning.safetensors** | SDXL | Realista, rápido | Fotos corporativas, produtos, backgrounds |
+| 2 | **cyberrealisticPony\_v130.safetensors** | Pony | Realista + anime | Poses, expressões, pessoas |
+| 3 | **flux1-dev-fp8.safetensors** | Flux | Ultra-realista | Máxima qualidade, sem negative prompt |
 
----
 
-## 2. INVESTIGAÇÃO DIGITAL — Hero
+**Para landing pages corporativas:** Use o **juggernautXL** (mais rápido) ou **flux1-dev** (melhor qualidade).
 
-```
-Detective magnifying glass over digital data streams, dark background with blue and green glowing elements, OSINT investigation concept, professional technology illustration, no text
-```
 
-**Variação 2:**
-```
-Digital forensic analysis screen with code and network maps, dark hacker workspace with ambient blue lighting, professional cybersecurity aesthetic, no text
-```
+## OS 3 LoRAs QUE FUNCIONAM PARA IMAGENS
 
----
+Estes LoRAs estão disponíveis no Nordy e melhoram os resultados:
 
-## 3. LGPD & CONFORMIDADE — Hero
+| \# | LoRA (nome real) | Para que serve | Peso |
+| - | - | - | - |
+| 1 | **cinematic\_warm\_light** | Tons quentes, iluminação dourada | 0.5 a 0.8 |
+| 2 | **add-detail\_xl** | Aumentar detalhes na imagem | 0.4 a 0.6 |
+| 3 | **detail\_tweaker\_illustrios** | Refinar detalhes (funciona melhor com Illustrious) | 0.3 a 0.5 |
 
-```
-Digital shield with lock icon protecting personal data, green and blue gradient background, corporate compliance concept, modern clean design, professional illustration, no text
-```
 
-**Variação 2:**
-```
-Business compliance dashboard with charts and data protection icons, modern office setting, green accent colors, professional corporate style, no text
-```
 
----
+## COMBINAR CHECKPOINT + LoRA
 
-## 4. TERAPIA & SUPERVISÃO — Hero
+### Combinação 1: CORPORATIVO (azul)
 
 ```
-Calm peaceful therapy room with soft purple and blue lighting, minimal modern design, wellness and mental health concept, soothing atmosphere, professional photography style, no text
+Checkpoint: juggernautXL\_v9Rdphoto2Lightning.safetensors  
+LoRA: NENHUM (estilo limpo, sem LoRA)  
+Prompt: masterpiece, best quality, 4k,  
+  abstract blue technology background, glowing network nodes,  
+  cobalt blue connections, corporate style, clean minimalist design,  
+  soft blue lighting, professional, no text, no letters  
+Negative: text, letters, words, watermark, blurry, low quality
 ```
 
-**Variação 2:**
-```
-Abstract mind visualization with neural connections, purple and blue gradient, therapy and psychology concept, elegant minimalist design, no text
-```
-
----
-
-## 5. AUTOMAÇÃO N8N — Hero
+### Combinação 2: DETECTIVE (verde + azul)
 
 ```
-Robotic arm connecting digital gears and workflow nodes, blue and green technology background, automation concept, modern flat design with depth, professional illustration, no text
+Checkpoint: juggernautXL\_v9Rdphoto2Lightning.safetensors  
+LoRA: add-detail\_xl (0.5)  
+Prompt: masterpiece, best quality, 4k,  
+  magnifying glass over digital data streams,  
+  emerald green and cobalt blue neon elements,  
+  dark background, OSINT investigation concept,  
+  technology illustration, dramatic lighting, no text, no letters  
+Negative: text, letters, words, watermark, blurry, low quality
 ```
 
-**Variação 2:**
-```
-Digital workflow diagram with connected nodes and arrows, dark background with glowing connections, automation and integration concept, clean modern style, no text
-```
-
----
-
-## 6. E-COMMERCE & MARKETING — Hero
+### Combinação 3: TERAPIA (roxo)
 
 ```
-Online shopping dashboard with charts and analytics, warm orange and red accents, e-commerce growth concept, modern business analytics style, professional design, no text
+Checkpoint: flux1-dev-fp8.safetensors  
+LoRA: NENHUM (Flux não precisa)  
+Prompt: A calm therapy room with soft lavender ambient lighting,  
+  minimal modern furniture, abstract mind visualization with  
+  neural connections, soothing atmosphere, wellness concept,  
+  professional photography, no text  
+Negative: (Flux ignora negative)
 ```
 
-**Variação 2:**
-```
-Digital marketing performance dashboard with social media icons and growth charts, vibrant colors, modern business style, no text
-```
-
----
-
-## 7. PENTEST & SEGURANÇA — Hero
+### Combinação 4: PENTEST (vermelho)
 
 ```
-Cybersecurity lock with digital code background, red and dark blue accents, ethical hacking concept, professional technology illustration, dramatic lighting, no text
+Checkpoint: cyberrealisticPony\_v130.safetensors  
+LoRA: cinematic\_warm\_light (0.6)  
+Prompt: masterpiece, best quality, 4k,  
+  cybersecurity padlock with crimson red neon glow,  
+  dark navy background, digital code scrolling,  
+  ethical hacking concept, dramatic red lighting,  
+  professional technology illustration, no text, no letters  
+Negative: text, letters, words, watermark, blurry, low quality
+
+text, letters, words, watermark, blurry, low quality
 ```
 
-**Variação 2:**
+## COMO USAR NO NORDY
+
+### Passo 1: Abra o Nordy
+
+### Passo 2: Selecione o Checkpoint
+
+No painel esquerdo, procure o campo "Checkpoint" ou "Model" e selecione:
+
+- `juggernautXL\_v9Rdphoto2Lightning.safetensors` (para fotos rápidas)
+
+- `cyberrealisticPony\_v130.safetensors` (para pessoas/poses)
+
+- `flux1-dev-fp8.safetensors` (para máxima qualidade)
+
+### Passo 3: Adicione o LoRA (opcional)
+
+Se quiser usar um LoRA, procure o campo "LoRA" e selecione:
+
+- `cinematic\_warm\_light` (tons quentes)
+
+- `add-detail\_xl` (mais detalhes)
+
+- Ajuste o peso para 0.4-0.6
+
+### Passo 4: Cole o Prompt
+
+Copie o prompt da combinação escolhida e cole na caixa de "Prompt"
+
+### Passo 5: Cole o Negative Prompt
+
+Se estiver usando SDXL ou Pony, cole o negative. Se estiver usando Flux, deixe vazio.
+
+### Passo 6: Ajuste os parâmetros
+
+- **Steps:** 30 (SDXL/Pony) ou 20 (Flux)
+
+- **CFG:** 7 (SDXL/Pony) ou 1.0 (Flux)
+
+- **Resolução:** 1024x1024
+
+### Passo 7: Gere e baixe
+
+Clique em "Generate", aguarde, e baixe a imagem.
+
+
+## ONDE COLOCAR NO HTML
+
+### Estrutura
+
 ```
-Penetration testing terminal with code scrolling, dark hacker aesthetic with red accent lighting, professional cybersecurity style, no text
+landing-pages/  
+├── homepage/  
+│   ├── index.html  
+│   ├── hero.jpg    ← imagem gerada  
+│   └── style.css  
+├── investigacao/  
+├── lgpd/  
+├── terapia/  
+├── n8n/  
+├── ecommerce/  
+└── pentest/
 ```
 
----
+### No HTML
 
-## 📐 ESPECIFICAÇÕES TÉCNICAS
+```
+\<section class="hero"\>  
+  \<img src="hero.jpg" alt="Descrição" loading="lazy"\>  
+  \<div class="hero-text"\>  
+    \<h1\>Título\</h1\>  
+    \<p\>Subtítulo\</p\>  
+  \</div\>  
+\</section\>
+```
 
-| Parâmetro | Valor |
-|-----------|-------|
-| Resolução hero | 1920x1080 |
-| Resolução social | 1200x630 |
-| Formato | JPG ou PNG |
-| Estilo | Profissional, dark theme |
-| Cores | Azul (#2563eb), Verde (#10b981), Vermelho (#ef4444) |
-| Texto | NENHUM (adicionar via HTML/CSS) |
+### No CSS
 
-## 🔄 COMO USAR
+```
+.hero \{ position: relative; width: 100%; min-height: 100vh; \}  
+.hero img \{ width: 100%; height: 100%; object-fit: cover; \}  
+.hero-text \{  
+  position: absolute; top: 50%; left: 50%;  
+  transform: translate(-50%, -50%);  
+  color: white; background: rgba(0,0,0,0.6);  
+  padding: 2rem; border-radius: 12px;  
+\}
+```
 
-1. Abra o Nordy
-2. Cole o prompt
-3. Gere a imagem
-4. Baixe em alta resolução
-5. Salve como `hero.jpg` na pasta correspondente
-6. Referencie no HTML: `<img src="hero.jpg" alt="...">`
+### Subir pro Git
 
-## ⚠️ DICAS
+```
+cwebp -q 80 hero.jpg -o hero.webp  
+git add . && git commit -m "feat: hero image" && git push
+```
 
-- **NÃO inclua texto** nos prompts — o Nordy não gera texto legível
-- **Gere 2-3 variações** e escolha a melhor
-- **Ajuste o seed** para manter consistência visual entre páginas
-- **Use negative prompt:** `text, letters, words, watermark, blurry, low quality`
+
+## CORES: NÃO USE HEX
+
+O modelo não entende `\#ef4444`. Use nomes em inglês:
+
+| Hex | Escreva |
+| - | - |
+| \#ef4444 | red, crimson |
+| \#2563eb | blue, cobalt |
+| \#10b981 | green, emerald |
+| \#8b5cf6 | purple, violet |
+| \#f97316 | orange, amber |
+
+
+
+**v3.1 — Neo, Time Hermes — 04/06/2026**
+
+
+## RESOLUÇÕES CORRETAS
+
+Cada checkpoint gera em uma resolução diferente. O Nordy faz upscale automático.
+
+| Checkpoint | Gera em | Upscale | Resultado Final |
+| - | - | - | - |
+| juggernautXL | 880x1136 | 4x (ClearReality) | 3520x4544 |
+| cyberrealisticPony | 880x1136 | 4x (ClearReality) | 3520x4544 |
+| flux1-dev | 1024x1024 | NENHUM | 1024x1024 |
+
+
+### Para cada uso, recorte a imagem gerada:
+
+| Uso | Resolução | Proporção | Como cortar |
+| - | - | - | - |
+| Hero desktop | 1920x1080 | 16:9 | Corte central da imagem |
+| Hero mobile | 1080x1920 | 9:16 | Corte vertical central |
+| Social media | 1200x630 | 1.91:1 | Corte central horizontal |
+| Thumbnail | 400x300 | 4:3 | Corte central |
+
+
+### Comandos para redimensionar:
+
+```
+\# Hero desktop (16:9)  
+convert hero\_original.jpg -gravity center -crop 3520x1980+0+0 +repage -resize 1920x1080 hero-desktop.jpg  
+  
+\# Hero mobile (9:16)  
+convert hero\_original.jpg -gravity center -crop 2016x4544+0+0 +repage -resize 1080x1920 hero-mobile.jpg  
+  
+\# Social media (1.91:1)  
+convert hero\_original.jpg -gravity center -crop 3520x1844+0+0 +repage -resize 1200x630 hero-social.jpg
+```
+
